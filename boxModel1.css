@@ -1,0 +1,98 @@
+/*NOTE:::: I recommend that you add listing 3.6 to your CSS every time you start a new site/page. */
+:root{
+    box-sizing: border-box;    /* also a more robust border-box fix in case of a third party component */
+}
+
+*, ::before, ::after {
+    box-sizing: inherit; /* NOTE::: Adding this snippet near the beginning of your stylesheet has become common practice. */
+}
+body * + * {
+    margin-top: 1.5em;  /* the LOBOTOMIZED OWL selector, used here to generalise the effect throught the page */
+}                       /* but you can override in places where you dont want it to appear or take effect by simply using, the element{margin-top: 0em;}*/
+/* listing 3.6 ends here*/
+
+.third-party-component {
+    box-sizing: content-box;  /* you can convert a third-party component into a content-box when necessary by targeting its
+    top-level container. Then all elements inside the component will inherit the box sizing: */
+}
+
+body {
+    background-color: #eee;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+header {
+    padding: 1em 1.5em ;
+    text-align: center;
+    color: #fff;
+    background-color: #0072b0;
+    border-radius: .5em;
+}
+
+/*              CSS TABLES AND FLEX BOX         */
+/* table based colunm with a corrected border, the negative value counteracts the border spacing property */
+/* now html elements can be used semantically instead of beign non-semantic */
+.wrappper {
+    margin-left: -1.5em;
+    margin-right: -1.5em;
+}
+.container {
+    display: table;
+    width: 100%;
+    border-spacing: 1.5em;
+}
+main {
+    display: block;
+} /* this fixes internet explorer bug when converting an element display properties to table*/
+
+.main{
+    /* making it universal */ /* box-sizing: border-box; */ /* changes the box model to boder box sizing */
+    padding: 1em 1.5em;
+    display: table-cell;
+    width: 70%;
+    background-color: #fff;
+    border-radius: .5em;
+}
+
+.sidebar {
+    /* box-sizing: border-box; */
+    display: table-cell; /* margin no longer works when this property is applied*/
+    width: calc(30% - 1.5em); /*width: 29%;*   /*box-sizing: border-box;*/ /*Adjusting the box model*/ /*calc(30% - 3em);*/          /* width: 30%; */
+    margin-left: 1.5em; /*em is consistent in creating gutter between columns*/
+    padding: 1.5em;
+    background-color: #fff;
+    border-radius: .5em;
+} /*The values wrap cus the width is 100% + 3em long, we can use a magic number of 26% as the sidebar width, but it is better
+    to allow the browser do the calculation by it self using {calc(20% - 3em) still, a better way is by ADJUSTING THE BOX MODEL*/
+.button-link {
+    display: block;
+    padding: 0.5em;
+    color: #fff;
+    background-color: #0090C9;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.button-link + .button-link {
+    margin-top: 1.5em;  /* this fixes the top margin between the link and the contianer*/
+} 
+.sponsor-link {
+    padding-top: 0.5em;
+    display: block;
+    color: #0072b0;
+    font-weight: bold;
+    text-decoration: none;
+}
+/*                         CREATING A MORE GENERALIZED SOLUTION               */
+/*     Pickering calls this the LOBOTOMIZED OWL SELECTOR. It looks like this:  * + * .       */
+
+/*                CONTROLLING OVERFLOWING PROPERTIES: VISIBLE, "AUTO", SCROLL, HIDDEN.            */
+/* overflow-x for horizontal while -y for vertical, setting both to explicitly diffrent values can have unexpected result*/
+
+/*
+Summary
+ Always use a universal border-box fix for predictable element sizing.
+ Avoid explicitly setting the height of an element to avoid overflow issues.
+ Use modern layout techniques like display: table or a flexbox to produce columns of equal height or to vertically center content.
+ If your margins behave oddly, take steps to prevent margins from collapsing.
+ Consider using the lobotomized owl selector on your page to globally apply margins between stacked elements.*/

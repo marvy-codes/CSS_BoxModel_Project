@@ -1,0 +1,95 @@
+/*    FLEX-BOX   */
+/* It’s not a "holy grail" solution, however. The HTML table attributes colspan and rowspan have no equivalent, and floats,
+ flexboxes, and inline-blocks can layout content in ways that tables can’t.*/
+
+/*Equal-height columns using a flexbox*/
+.container {
+    display: flex;            /* Applies flex display to the container*/
+}
+.main {
+    width: 70%;
+    background-color: #fff;
+    border-radius: 0.5em;     /*Items inside the flex container don’t need specified display or float properties.*/
+}
+.sidebar {
+    width: 30%;
+    padding: 1.5em;
+    margin-top: 0; 
+    margin-left: 1.5em;
+    background-color: #fff;
+    border-radius: .5em;       /* Margins work as before with floats*/
+}
+   
+/*WARNING::: Never explicitly set the height of an element unless you have no other choice. Always seek an alternative
+approach first. Setting a height invariably leads to further complications.*/
+
+/*         VERTICALLY CENTERING OBJECTS      */
+/* you can use margin to vartically center element inside thier container, check page 100 for guide lines to other related
+   vertically centering problem*/
+
+/*            NEGATIVE MARGIN        */
+/* WARNING: Using negative margins to overlap elements can render some elements unclickable if they’re moved beneath other elements.*/
+
+/*          COLLAPSING MARGINS      */
+/* COLLAPSING:::: are adjoining TOP and BOTTOM margins.. NOTE:::: Margin collapsing only occurs with top and bottom margins. Left and
+   right margins don’t collapse. Also if an element is nexted inside multiple divs with no padding margin and border specification, the tags
+   above and below still mentain thier collapsed maargin specification...*/
+/* CHECK page 104 to see ways of preventing margins from collapsing */
+
+/*  TAKE YOUR TIME TO READ PAGE 100 AND 104..........  */
+
+/*        SPACING ELEMENTS BETWEEN A CONTAINER        */
+
+
+/*                                FINAL        STYLE        SHEEEEEEEET!!!!!!!!       
+:root {
+    box-sizing: border-box;
+}
+*, ::before, ::after {
+    box-sizing: inherit;
+}
+body {
+    background-color: #eee;
+    font-family: Helvetica, Arial, sans-serif;
+}
+body * + * {
+    margin-top: 1.5em;
+}
+header {
+    padding: 1em 1.5em;
+    color: #fff;
+    background-color: #0072b0;
+    border-radius: .5em;
+}
+.container {
+    display: flex;
+}
+.main {
+    width: 70%;
+    padding: 1em 1.5em;
+    background-color: #fff;
+    border-radius: .5em;
+}
+.sidebar {
+    width: 30%;
+    padding: 1.5em;
+    margin-top: 0;
+    margin-left: 1.5em;
+    background-color: #fff;
+    border-radius: .5em;
+}
+.button-link {
+    display: block;
+    padding: .5em;
+    color: #fff;
+    background-color: #0090C9;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.sponsor-link {
+    display: block;
+    color: #0072b0;
+    font-weight: bold;
+    text-decoration: none;
+}*/ 
